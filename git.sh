@@ -24,9 +24,9 @@ while [ -z $githubpw ]; do read -s -p "请输入github密码：" githubpw;echo "
 while [ -z $jenkinspw ]; do read -s -p "请输入jenkins密码：" jenkinspw;echo ""; done
 
 #这是用文件存储用户名和密码的方式，方便，但比较不安全
-githubuser=`sed -n "1p" /usr/share/jengit.txt`
-githubpw=`sed -n "2p" /usr/share/jengit.txt`
-jenkinspw=`sed -n "3p" /usr/share/jengit.txt`
+#githubuser=`sed -n "1p" /usr/share/jengit.txt`
+#githubpw=`sed -n "2p" /usr/share/jengit.txt`
+#jenkinspw=`sed -n "3p" /usr/share/jengit.txt`
 
 #github的提交操作
 read -p "请输入代码提交信息，如果直接回车将以日期时间作为代码提交信息：" info
