@@ -20,22 +20,8 @@ done
 
 #检查是否输入了参数
 while [ -z $githubuser ]; do read -p "请输入github用户名：" githubuser; done
-while [ -z $githubpw ]; do read -p "请输入github密码：" githubpw; done
-while [ -z $jenkinspw ]; do read -p "请输入jenkins密码：" jenkinspw; done
-#if [ -z $githubpw ]
-#then
-#        read -p "请输入github密码：" githubpw
-#else
-#        githubpw=$
-#fi
-#
-#if [ -z $jenkinspw ]
-#then
-#        read -p "请输入jenkins密码：" jenkinspw
-#else
-#        jenkinspw=$3
-#fi
-
+while [ -z $githubpw ]; do read -s -p "请输入github密码：" githubpw; done
+while [ -z $jenkinspw ]; do read -s -p "请输入jenkins密码：" jenkinspw; done
 
 #github的提交操作
 read -p "请输入代码提交信息，如果直接回车将以日期时间作为代码提交信息：" info
