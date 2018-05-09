@@ -1,25 +1,40 @@
 #!/bin/bash
+#给参数赋值
+while getopts "u:g:j:" opt;
+do
+        case $opt in
+        u)
+		githubuser=$OPTARG
+        ;;
+        g)
+                githubpw=$OPTARG
+        ;;
+	j)
+                jenkinspw=$OPTARG
+        ;;
+        \?)
+                echo "invalid option: $OPTARG"
+        ;;
+        esac
+done
+
 #检查是否输入了参数
-if [ -z $1 ]
-then
-	read -p "请输入github用户名：" githubuser
-else
- 	githubuser=$1
-fi
-
-if [ -z $2 ]
-then
-        read -p "请输入github密码：" githubpw
-else
-        githubpw=$2
-fi
-
-if [ -z $3 ]
-then
-        read -p "请输入jenkins密码：" jenkinspw
-else
-        jenkinspw=$3
-fi
+while [ -z $githubuser ]; do read -p "请输入github用户名：" githubuser; done
+while [ -z $githubpw ]; do read -p "请输入github密码：" githubpw; done
+while [ -z $jenkinspw ]; do read -p "请输入jenkins密码：" jenkinspw; done
+#if [ -z $githubpw ]
+#then
+#        read -p "请输入github密码：" githubpw
+#else
+#        githubpw=$
+#fi
+#
+#if [ -z $jenkinspw ]
+#then
+#        read -p "请输入jenkins密码：" jenkinspw
+#else
+#        jenkinspw=$3
+#fi
 
 
 #github的提交操作
