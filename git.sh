@@ -35,9 +35,9 @@ fi
 expect <<EOF # > /dev/null 2>&1
 spawn git push origin master
 expect "github.com':"
-send "$githubuser\r\n"
+send "$githubuser\n"
 expect "@github.com':"
-send "$githubpw\r\n"
+send "$githubpw\n"
 expect eof
 EOF
 
