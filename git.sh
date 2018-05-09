@@ -1,28 +1,31 @@
 #!/bin/bash
-#给参数赋值
-while getopts "u:g:j:" opt;
-do
-        case $opt in
-        u)
-		githubuser=$OPTARG
-        ;;
-        g)
-                githubpw=$OPTARG
-        ;;
-	j)
-                jenkinspw=$OPTARG
-        ;;
-        \?)
-                echo "invalid option: $OPTARG"
-        ;;
-        esac
-done
+##给参数赋值
+#while getopts "u:g:j:" opt;
+#do
+#        case $opt in
+#        u)
+#		githubuser=$OPTARG
+#        ;;
+#        g)
+#                githubpw=$OPTARG
+#        ;;
+#	j)
+#                jenkinspw=$OPTARG
+#        ;;
+#        \?)
+#                echo "invalid option: $OPTARG"
+#        ;;
+#        esac
+#done
+#
+##检查是否输入了参数
+#while [ -z $githubuser ]; do read -p "请输入github用户名：" githubuser; done
+#while [ -z $githubpw ]; do read -s -p "请输入github密码：" githubpw;echo ""; done
+#while [ -z $jenkinspw ]; do read -s -p "请输入jenkins密码：" jenkinspw;echo ""; done
 
-#检查是否输入了参数
-while [ -z $githubuser ]; do read -p "请输入github用户名：" githubuser; done
-while [ -z $githubpw ]; do read -s -p "请输入github密码：" githubpw;echo ""; done
-while [ -z $jenkinspw ]; do read -s -p "请输入jenkins密码：" jenkinspw;echo ""; done
-
+githubuser=`sed -n "1p" /usr/share/jengit.txt`
+githubpw=`sed -n "2p" /usr/share/jengit.txt`
+jenkinspw=`sed -n "3p" /usr/share/jengit.txt`
 #github的提交操作
 read -p "请输入代码提交信息，如果直接回车将以日期时间作为代码提交信息：" info
 git add .
