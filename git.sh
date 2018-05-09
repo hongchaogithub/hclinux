@@ -6,6 +6,6 @@ spawn git push origin master
 expect "github.com':"
 send "hongchaogithub\n"
 expect "@github.com':"
-send "nxbxzgrlp2"
+send "nxbxzgrlp2\n"
 expect eof
 EOF
