@@ -12,9 +12,9 @@ fi
 expect <<EOF # > /dev/null 2>&1
 spawn git push origin master
 expect "github.com':"
-send "$1\n"
+send "$1\r\n"
 expect "@github.com':"
-send "$2\n"
+send "$2\r\n"
 expect eof
 EOF
 
