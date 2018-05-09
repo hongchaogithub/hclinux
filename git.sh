@@ -8,14 +8,15 @@ then
 else
 	git commit -m $info
 fi
+
 expect <<EOF # > /dev/null 2>&1
 spawn git push origin master
 expect "github.com':"
-send "hongchaogithub\n"
+send "$1\n"
 expect "@github.com':"
-send "nxbxzgrlp2\n"
+send "$2\n"
 expect eof
 EOF
 
 #远程触发构建
-curl -u admin:123 -X POST http://182.10.1.55:8080/job/demo/build?token=123456
+curl -u admin:$3 -X POST http://182.10.1.55:8080/job/demo/build?token=123456
