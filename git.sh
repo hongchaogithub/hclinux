@@ -2,21 +2,21 @@
 #检查是否输入了参数
 if [ -z $1 ]
 then
-	read -p "请输入github用户名：" $githubuser
+	read -p "请输入github用户名：" githubuser
 else
  	githubuser=$1
 fi
 
 if [ -z $2 ]
 then
-        read -p "请输入github密码：" $githubpw
+        read -p "请输入github密码：" githubpw
 else
         githubpw=$2
 fi
 
 if [ -z $3 ]
 then
-        read -p "请输入jenkins密码：" $jenkinspw
+        read -p "请输入jenkins密码：" jenkinspw
 else
         jenkinspw=$3
 fi
