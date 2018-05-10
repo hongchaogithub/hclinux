@@ -1,7 +1,9 @@
 #!/bin/bash
 #检查是否安装了必须的软件
 dpkg -l|grep expect|awk '{print $2}'|grep -v .expect.
-if [ $? -ne 0 ] 
+flag=$?
+echo $flag
+if [ $flag -ne 0 ] 
 then
 apt update
 apt install expect << EOF
