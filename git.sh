@@ -1,6 +1,6 @@
 #!/bin/bash
 #检查是否安装了必须的软件
-dpkg -l|grep expect|awk '{print $2}'|grep -v .expect.
+dpkg -l|grep expect|awk '{print $2}'|grep -v .expect. &>/dev/null
 flag=$?
 echo $flag
 if [ $flag -ne 0 ] 
