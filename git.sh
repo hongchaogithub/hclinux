@@ -1,12 +1,14 @@
 #!/bin/bash
 #检查是否安装了必须的软件
-dpkg -l|grep expect|awk '{print $2}'|grep -v .expect. &>/dev/null
+dpkg -l|grep expect|awk '{print $2}'|grep ^expect$ &>/dev/null
 if [ $? -ne 0 ] 
 then
-apt update
-apt install expect << EOF
+echo "installing expect..."
+apt update &>/dev/null
+apt install expect << EOF &>/dev/null
 y
 EOF
+echo "expect installation is completed"
 fi
 
 #给参数赋值
