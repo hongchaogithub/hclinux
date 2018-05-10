@@ -3,12 +3,12 @@
 dpkg -l|grep expect|awk '{print $2}'|grep ^expect$ &>/dev/null
 if [ $? -ne 0 ] 
 then
-echo "installing expect..."
+echo "正在安装必须的软件..."
 apt update &>/dev/null
 apt install expect << EOF &>/dev/null
 y
 EOF
-echo "expect installation is completed"
+echo "安装完成！"
 fi
 
 #给参数赋值
